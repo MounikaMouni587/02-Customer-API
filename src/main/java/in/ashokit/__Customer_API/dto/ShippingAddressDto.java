@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 public class ShippingAddressDto {
 
-    private Integer address_Id;
+    private Integer addressId;
     private Integer houseNumber;
     private String city;
     private String street;

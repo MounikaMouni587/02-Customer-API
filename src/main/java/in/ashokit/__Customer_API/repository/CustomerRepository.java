@@ -4,4 +4,9 @@ import in.ashokit.__Customer_API.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepository extends JpaRepository<Customer,Integer> {
+
+    public Customer findByEmailAndPwd(String email,String pwd);
+
+    public Customer findByEmail(String Email);
+
 }
