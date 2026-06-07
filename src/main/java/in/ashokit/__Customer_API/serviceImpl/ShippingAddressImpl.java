@@ -35,7 +35,7 @@ public class ShippingAddressImpl implements ShippingAddressService {
         return ShippingAddressMapper.convertToDto(savedAddress);
 
     }
-
+//---------------------------------------------------------------
     @Override
     public ShippingAddressDto getAddress(Integer addressId) {
         Optional<ShippingAddress> addressEntity = shippingAddressRepository.findById(addressId);
@@ -45,19 +45,21 @@ public class ShippingAddressImpl implements ShippingAddressService {
         }
         return null;
     }
-
+//------------------------------------------------------------------------------------------
     @Override
     public List<ShippingAddressDto> getCustomerAddress(Integer customerId) {
         List<ShippingAddress> addressEntityList=shippingAddressRepository.findByCustomerCustomerIdAndDeleteSw(customerId,"N");
         return addressEntityList.stream().map(ShippingAddressMapper::convertToDto).toList();
     }
-
+//------------------------------------------------------------------------------------------------------
     @Override
     public boolean deleteAddress(Integer addressId) {
+        //hard delete-> it will permenantly delete from the database
 //        if(shippingAddressRepository.existsById(addressId)){
 //            shippingAddressRepository.deleteById(addressId);
 //
 //        }
+        //soft delete-> it will just deactivate the address
         Optional<ShippingAddress> byId=shippingAddressRepository.findById(addressId);
         if(byId.isPresent()){
             ShippingAddress addressEntity=byId.get();
