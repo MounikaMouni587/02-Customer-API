@@ -8,14 +8,14 @@ import java.util.List;
 @Service
 public interface ShippingAddressService {
 
-    public ShippingAddressDto savedAddress(ShippingAddressDto shippingAddressDto);
+    public ShippingAddressDto savedAddress(ShippingAddressDto shippingAddressDto,Integer cusotmerId);
 
     public ShippingAddressDto getAddress(Integer addressId);
 
-    public ShippingAddressDto updateAddress(ShippingAddressDto shippingAddressDto);
+
 
     public List<ShippingAddressDto> getCustomerAddress(Integer customerId);
 
-    public ShippingAddressDto deleteAddress(Integer addressId);
+    public boolean deleteAddress(Integer addressId);
 
 }

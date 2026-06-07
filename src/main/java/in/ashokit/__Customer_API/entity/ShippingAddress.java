@@ -13,7 +13,7 @@ public class ShippingAddress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer address_Id;
+    private Integer addressId;
     private Integer houseNumber;
     private String city;
     private String street;
@@ -21,6 +21,7 @@ public class ShippingAddress {
     private String country;
     private Long zipCode;
     private String addressType;
+    private String deleteSw;
 
     @ManyToOne
     @JoinColumn(name="customer_Id")
